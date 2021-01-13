@@ -1,0 +1,218 @@
+
+
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+    margin: 0; padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: var(--clr-bkgd);
+    height: 100%;
+    width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.heading-container {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.heading-container h2 {
+    font-family: var(--ff-text);
+    font-weight: 600;
+    font-size: 4vh;
+    color: var(--clr-accent);
+}
+
+.post-list__container {
+    width: 100vw;
+    height: auto;
+    margin: 0rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.post--feat {
+    display: none;
+}
+.post--feat:nth-of-type(1) {
+    position: relative;
+    display: initial;
+    background-image: url(../img/CMS-det-image2.jpeg);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+    height: 16rem;
+    border-radius: 0.8rem;
+    margin: 0rem 1rem auto;
+    display: flex;
+    flex-direction: column;
+}
+.post--feat__text {
+    margin: auto auto 1rem 0rem;
+    color: #000;
+    background: var(--clr-bkgd-light);
+    padding: 5px .5rem 5px;
+}
+.post--feat__text .date {
+    position: absolute;
+    top: 1rem;
+    right: 0rem;
+    color: var(--clr-bkgd-light);
+    background: #000;
+    padding: 3px 0.5rem;
+}
+.post--feat__text a {
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.post--feat__text p {
+    font-size: 0.75rem;
+}
+
+.post-list {
+    list-style: none;
+    width: auto;
+    margin: 1.5rem 0rem auto;
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.entry-content:hover > a {
+    font-size: 1.25em;
+    text-decoration: underline;
+}
+.entry-content:hover > i {
+    font-size: 1.25em;
+    transform: translateX(20px);
+}
+
+.post-entries ~ .post-entries {
+    margin-right: 0.5rem;
+}
+
+.post-entries:nth-of-type(2) {
+    margin-left: 1rem;
+}
+
+.post-entries:nth-of-type(1) {
+    display: none;
+}
+
+.post-entries:last-of-type {
+    margin-right: 1rem;
+}
+
+.entry-content {
+    width: 40vw;
+    height: 30vh;
+    color: #000;
+    background-color: var(--clr-bkgd-light);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+.entry-content .date {
+    font-weight: 500;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.8);
+}
+.entry-content a {
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.entry-content .desc {
+    padding-top: 0.5rem;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 370px) {
+    .fa {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .heading-container {
+        margin-top: 0rem;
+    }
+
+    .heading-container h2 {
+        font-size: 3.5rem;
+    }
+
+    .post-list__container {
+        flex-direction: row;
+        height: 80vh;
+    }
+
+    .post--feat:nth-of-type(1) {
+        width: 50vw;
+        height: auto;
+        margin: 0rem 1rem 1rem auto;
+    }
+
+    .post-list {
+        flex-direction: column;
+        overflow-y: scroll;
+        margin-top: unset;
+        margin-right: auto;
+        margin-left: 1rem;
+        margin-bottom: 0rem;
+    }
+
+    .post-entries ~ .post-entries {
+        margin: auto auto 0.5rem 0rem;
+    }
+
+    .entry-content {
+        width: 40vw;
+        height: 8rem;
+    }
+
+    .nav li.news-updates {
+        background: #171525;
+        border-radius: .25em .25em 0em 0em;
+    }
+}

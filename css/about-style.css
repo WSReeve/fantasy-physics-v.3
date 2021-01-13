@@ -1,0 +1,181 @@
+/*=======================
+----TABLE OF CONTENTS----
+1.  General Styles
+    a.  Colors and Fonts
+2.  Typography
+3.  Layout
+4.  Media Queries
+========================*/
+
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+    margin: 0; padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: var(--clr-bkgd);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/*****************
+    Typography  
+*****************/
+
+.page__header {
+    all: unset;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.contacts__content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h2 {
+    background-color: var(--clr-primary);
+}
+
+.contacts__header {
+    background-color: var(--clr-accent);
+}
+
+h2, h3 {
+    font-family: var(--ff-text);
+    font-weight: 600;
+    font-size: 1.2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 0.5em;
+    color: #fff;
+    line-height: 0.8;
+}
+
+p {
+    align-self: center;
+    max-width: 50ch;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: .8em 2em;
+}
+
+.contacts__content {
+    list-style: none;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: .8em 2em;
+    line-height: 2em;
+}
+
+/*************
+    Layout  
+*************/
+
+h2,
+.contacts__content,
+p {
+    text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .page__header {
+        font-size: 3.5rem;
+    }
+
+    .about__container {
+        display: flex;
+        width: 90vw;
+        margin: 2.5rem auto auto;
+    }
+
+    .about__sub {
+        margin: 0rem 1.5rem;
+    }
+
+    .contacts__container {
+        width: 25vw;
+        margin: auto auto 2rem;
+    }
+
+    h2,
+    .contacts__header {
+        font-size: 1.5rem;
+        background-color: #2f2f2f;
+        text-align: center;
+        padding: 1em;
+        margin: auto;
+        border-radius: 1em;
+        border: 8px solid #2f2f2f;
+        box-shadow: 
+        0.25rem 0.25rem 0.4rem rgba(0, 0, 0, 0.2), 
+        -0.25rem -0.25rem 0.4rem rgba(255, 255, 255, 0.062),
+        inset 0.25rem 0.25rem 0.4rem rgba(0, 0, 0, 0.3), 
+        inset -0.25rem -0.25rem 0.4rem rgba(255, 255, 255, 0.05);
+    }
+
+    .about__sub:hover > .sub__title {
+        background-color: var(--clr-primary);
+    }
+
+    .contacts__container:hover > .contacts__header {
+        background-color: var(--clr-accent);
+    }
+
+    p, .contacts__content {
+        font-size: 0.9rem;
+        padding-top: 1rem;
+    }
+
+    .nav li.about {
+        background: #171525;
+        border-radius: .25em;
+    }
+
+}

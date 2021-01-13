@@ -1,0 +1,122 @@
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+    margin: 0; padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: var(--clr-bkgd);
+    height: 100%;
+    width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.sign-up__form {
+    text-align: center;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*****************
+    Typography  
+*****************/
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1 {
+    font-family: var(--ff-logo);
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-family: var(--ff-text);
+    font-weight: 600;
+    font-size: 1.8em;
+    color: #fff;
+    line-height: 0.8;
+    margin: 1em;
+    color: var(--clr-accent);
+}
+
+p {
+    align-self: center;
+    max-width: 50ch;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 2em auto;
+}
+
+.input-box {
+    border: 2px solid var(--clr-accent);
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    width: 80%;
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0rem 1rem 1rem 0 rgba(0,0,0,.3);
+}
+
+.btn {
+    padding: 0.8em 2em;
+    border-radius: 1rem;
+    box-shadow: 0rem 1rem 1rem 0 rgba(0,0,0,.3);
+}
+
+.btn__si {
+    background: var(--clr-accent);
+}
+.btn__su {
+    background-image: var(--clr-primary-grad2);
+}
+hr {
+    width: 80%;
+    color: var(--clr-accent);
+    margin-top: 2em;
+}
+.checkbox {
+    outline: var(--clr-accent) solid 1px;
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .sign-up__form {
+        width: 45vw;
+    }
+}

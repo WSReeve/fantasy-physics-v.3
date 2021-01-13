@@ -1,0 +1,148 @@
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+  --clr-bkgd: #2f2f2f;
+  --clr-bkgd-light: #DDDDDD;
+  --clr-primary: #5124C9;
+  --clr-primary-light: #7B8FFC;
+  --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+  --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+  --clr-accent: #2AC424;
+
+  --ff-logo: 'Maven Pro', sans-serif;
+  --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+  margin: 0; padding: 0;
+}
+
+
+
+html {
+  box-sizing: border-box;
+  font-family: var(--ff-text);
+  color: #fff;
+  font-size: 20px;
+}
+
+body {
+  background: var(--clr-bkgd);
+  height: 100vh;
+}
+
+img {
+  display: block;
+}
+
+/* main styles */
+
+main {
+  text-align: center;
+  align-content: center;
+}
+
+h2 {
+  font-size: 2em;
+  color: var(--clr-accent);
+  padding: 0.8em;
+}
+
+.decks {
+  align-content: center;
+  width: 100%;
+  display: flex;
+}
+
+.deck__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: auto;
+}
+
+.deck {
+  width: 260px;
+  height: 360px;
+  border: 0.4em;
+  border-color: var(--clr-primary);
+  border-style: solid;
+  background: var(--clr-bkgd-light);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,.45);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  z-index: 10;
+}
+
+.deck ~ .deck {
+  margin: 2rem auto 0rem;
+}
+
+.deck__text {
+  width: 80%;
+  height: 35%;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,.3);
+  margin: auto auto 1rem;
+}
+
+.deck h3 {
+  padding-top: 0.5rem;
+  font-size: 1.25em;
+  color: var(--clr-primary);
+}
+
+.deck__text p {
+  color: var(--clr-bkgd);
+  font-size: .75em;
+  padding: 0.5rem 0.35rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .deck__wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0rem 1rem 0rem;
+  }
+  .deck ~ .deck{
+    margin: 1rem auto;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  h2 {
+    font-size: 3.5rem;
+  }
+  .deck__wrapper {
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  .deck {
+    margin: 0rem;
+    animation: 500ms ease-in paused;
+  }
+  .deck ~ .deck {
+    margin: 0rem 0rem 0rem 1rem;
+  }
+  .deck:hover {
+    transform: scale(1.4);
+    z-index: 100;
+  }
+}

@@ -1,0 +1,218 @@
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+    --clr-accent-grad: linear-gradient(to right, #b6fd31, #087a04);
+
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+    margin: 0; padding: 0;
+}
+
+
+
+html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+}
+
+body {
+    background: var(--clr-bkgd);
+    height: 100vh;
+}
+
+img {
+    display: block;
+    height: inherit;
+    width: inherit;
+}
+
+
+/*****************
+    Typography  
+*****************/
+
+h2 {
+    font-family: var(--ff-text);
+    font-weight: 800;
+    color: var(--clr-primary);
+    line-height: 0.8;
+    font-size: 1rem;
+}
+
+p {
+    font-weight: 500;
+}
+
+/* main styles */
+.interface {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.arena {
+    height: 70vh;
+    position: relative;
+    flex-shrink: 0;
+    background: #000;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.play-field {
+    background-color: var(--clr-bkgd);
+    height: 85%;
+    width: 100%;
+    margin: auto auto 0rem;
+    display: flex;
+
+}
+
+.card-area {
+    width: 284px;
+    height: 396px;
+    border: dashed 3px var(--clr-bkgd-light);
+    margin: auto 3rem auto auto;
+}
+
+.opponent-card {
+    width: 284px;
+    height: 396px;
+    border: dashed 3px var(--clr-bkgd-light);
+    margin: auto auto auto 3rem;
+}
+
+.timer {
+    background-color: var(--clr-primary);
+    padding: 2rem;
+    border-radius: 5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: auto 0rem;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--clr-accent);
+}
+
+.card__wrapper {
+    height: 440px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.cards {
+    height: 100%;
+    width: 100vw;
+    margin: auto;
+    display: flex;
+    animation: all .3s ease-in;
+}
+
+.card:first-of-type {
+    margin: 0rem  0rem 0rem auto;
+    transform: translateY(20px) rotate(-5deg);
+}
+.card:last-of-type {
+    margin: 0rem auto 0rem 0rem;
+    transform: translateY(20px) rotate(5deg);
+}
+
+
+.card {
+    position: relative;
+    /*width: 315px;
+    height: 440px;*/
+    width: 252px;
+    height: 352px;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,.45);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 20ms ease-out;
+}
+.card:hover {
+    transform: translateY(-150px);
+}
+
+.card__content {
+    top: 0px;
+    font-family: var(--ff-logo);
+    position: absolute;
+    width: 252px;
+    height: 352px;
+    display: flex;
+    flex-direction: column;
+}
+.card__name {
+    font-family: var(--ff-logo);
+    margin: 0.9rem auto auto;
+    font-size: 1.2rem;
+}
+.card__type {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--clr-bkgd);
+    margin: auto auto -3.92rem;
+}
+.card__text {
+    width: 80%;
+    height: 27%;
+    margin: auto auto 1.28rem;
+    display: flex;
+    flex-direction: column;
+}
+.card__text p {
+    font-size: 0.8rem;
+    margin: auto 0rem;
+}
+
+/* for interactions */
+
+.card.clicked {
+    box-shadow: 0 0 1rem 1.5rem #DDDDDD;
+}
+
+.card.invisible {
+    opacity: 0;
+}
+.card.drug:hover {
+    transform: unset;
+}
+.card.drug:first-of-type {
+    transform: unset;
+    margin: 1rem auto;
+}

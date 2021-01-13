@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Screen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/RPSgame-style.css">
+    <script src="script/main-01.js" defer></script>
+    <script src="script/game-01.js" defer></script>
+</head>
+<body>
+    <section class="interface">
+        <main class="arena">
+            <h1>Concept > Device > Particle > Concept </h1>
+            <h2 class="score">Wins: 0 | Losses: 0 | Ties: 0</h2>
+            <section class="play-field">
+                <div class="card-area area"></div>
+                <div class="timer">Choose a Card</div>
+                <div class="opponent-card">
+                    <img src="card-imgs/card-back.png" alt="Card Back">
+                </div>
+            </section>
+        </main>
+
+        <div class="card__wrapper">
+            <div class="cards area">
+
+                <div class="card card--1" draggable="true">
+                    <img src="card-imgs/card-proton.png" alt="Proton Particle">
+                    <div class="card__content">
+                        <h2 class="card__name">Proton</h2>
+                        <h3 class="card__type">Particle</h3>
+                        <div class="card__text">
+                            <p>This is the proton card.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card--2" draggable="true">
+                    <img src="card-imgs/FP-card-CMS.png" alt="CMS Apparatus">
+                    <div class="card__content">
+                        <h2 class="card__name">CMS</h2>
+                        <h3 class="card__type">Device</h3>
+                        <div class="card__text">
+                            <p>Compact Muon Solenoid</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card--3" draggable="true">
+                    <img src="card-imgs/FP-card-neuralNet.png" alt="neuralNet Concept">
+                    <div class="card__content">
+                        <h2 class="card__name">Neural Network</h2>
+                        <h3 class="card__type">Concept</h3>
+                        <div class="card__text">
+                            <p>This is the neural network card.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

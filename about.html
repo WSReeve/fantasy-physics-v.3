@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/about-style.css">
+    <link rel="stylesheet" href="css/header-styles.css">
+</head>
+<body><header>
+  <h1 class="logo"><a href="index.html">Fantasy Physics</a></h1>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" onclick="check()">
+  <div class="nav-container">
+      <i class="nav-menu__bkgd bkgd--top"></i>
+      <i class="nav-menu__bkgd bkgd--middle"></i>
+      <i class="nav-menu__bkgd bkgd--bottom"></i>
+      <nav class="nav-menu">
+          <ul class="nav">
+                <li><a href="games.html">Games</a></li>
+                <li class="news-updates"><a href="news.html">News & Updates</a></li>
+                <li class="about"><a href="about.html">About</a></li>
+                <li class="sign-in"><a href="sign-in.html">Sign In</a></li>
+          </ul>
+      </nav>
+  </div>
+  <label for="nav-toggle" class="nav-toggle__icon">
+      <i class="icon__open open--top"></i>
+      <i class="icon__open open--middle"></i>
+      <i class="icon__open open--bottom"></i>
+
+      <i class="icon__close close--left"></i>
+      <i class="icon__close close--right"></i>
+  </label>
+</header>
+
+<!-- jQuery ref sheets -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineMax.min.js'></script>
+<script src="script/nav-script.js"></script>
+<script type="text/javascript">
+
+    /* console log the nav-toggle checkbox */
+
+    function navigate() {
+        if (document.getElementById('nav-toggle').checked) {
+            console.log("checked");
+            if(tlOpen.progress() < 1){
+                tlOpen.play();
+            } else {
+                tlOpen.restart();
+            }
+        } else {
+            console.log("unchecked");
+            if(tlClose.progress() < 1){
+                tlClose.play();
+            } else {
+                tlClose.restart();
+            }
+        }
+    }
+    var query = window.matchMedia("(max-width: 1000px)")
+    function check() {
+        if (query.matches) {
+            console.log("navigate ran");
+            navigate();
+        } else {
+            console.log("navigate did not run");
+        }
+    }
+
+    query.addListener(check)
+
+</script>
+    
+    <h2 class="page__header">About</h2>
+
+    <main class="about__container">
+        <section class="about__sub sub--1">
+            <h2 class="sub__title">About The Project</h1>
+            <p>Fantasy Physics is a project centered around making Physics education fun, interactive, and accessable. Using online collectables and games, we hope to make physics education intriguing exciting for students of all ages. Additionally, the project supports valuable experiences for the students at KU involved in the maintanence of the educational games and content on the website.</p>
+        </section>
+        <section class="about__sub sub--2">
+            <h2 class="sub__title">Education and Outreach</h2>
+            <p>Our goal is to introduce physics to a broader crowd of people. By making our content interesting and accessableto people of all ages, we hope to create lots of interest and a bright future for STEM fields.</p>
+        </section>
+        <section class="about__sub sub--3">
+            <h2 class="sub__title">Who are we?</h2>
+            <p>The Fantasy Physics Team is a group of students and professors at The University of Kansas committed to Physics education and outreach.</p>        
+        </section>
+    </main>
+    <section class="contacts__container">
+        <h2 class="contacts__header">Contacts</h2>
+        <ul class="contacts__content">
+            <li>Project Supervisor: <a href="">Christopher Rogan</a></li>
+            <li>Website Developer: <a href="">Spencer Reeve</a></li>
+        </ul>
+    </section>
+</body>
+</html>

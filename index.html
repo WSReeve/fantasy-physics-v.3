@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Physics</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="script/cards.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="index.html">Fantasy Physics</a></h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" onclick="check()">
+        <div class="nav-container">
+            <i class="nav-menu__bkgd bkgd--top"></i>
+            <i class="nav-menu__bkgd bkgd--middle"></i>
+            <i class="nav-menu__bkgd bkgd--bottom"></i>
+            <nav class="nav-menu">
+                <ul class="nav">
+                      <li><a href="games.html">Games</a></li>
+                      <li class="news-updates"><a href="news.html">News & Updates</a></li>
+                      <li class="about"><a href="about.html">About</a></li>
+                      <li class="sign-in"><a href="sign-in.html">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+        <label for="nav-toggle" class="nav-toggle__icon">
+            <i class="icon__open open--top"></i>
+            <i class="icon__open open--middle"></i>
+            <i class="icon__open open--bottom"></i>
+        
+            <i class="icon__close close--left"></i>
+            <i class="icon__close close--right"></i>
+        </label>
+    </header>
+
+    <main>
+        <a href="game-window-01.html" class="btn btn__play">PLAY NOW</a>
+        <section class="featured-cards">
+            <div class="card__wrapper">
+                <div class="card card--cover">
+                    <h2 class="cover-card__title">TITLE/COVER CARD</h2>
+                    <div class="cover-card__text">
+                        <p>Every week we choose 3 experiments to spotlight on the homepage!</p>
+                    </div>
+                </div>
+                <div class="card card--1 card-cont">
+                    <!-- <img src="card-imgs/card-proton.png" alt="Proton Particle">
+                    <div class="card__content">
+                        <h2 class="card__name">Proton</h2>
+                        <h3 class="card__type">Particle</h3>
+                        <div class="card__text">
+                            <p>This is the proton card.</p>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="card card--2 card-cont">
+                    <!-- <img src="card-imgs/card-muon.png" alt="Muon Particle">
+                    <div class="card__content">
+                        <h2 class="card__name">Muon</h2>
+                        <h3 class="card__type">Particle</h3>
+                        <div class="card__text">
+                            <p >This is the muon card.</p>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="card card--3 card-cont">
+                    <!-- <img src="card-imgs/card-higgs.png" alt="Higgs Particle">
+                    <div class="card__content">
+                        <h2 class="card__name">Higgs Boson</h2>
+                        <h3 class="card__type">Particle</h3>
+                        <div class="card__text">
+                            <p>This is the higgs card. Add 4 Muons to your hand.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="action">
+            <p>Collect and upgrade experiment cards, build your deck, and play games all while learning about the most cutting edge developments In particle physics!</p>
+            <div class="btn-group">
+                <a href="the-experiments.html" class="btn">THE CREW</a>
+                <a href="about.html" class="btn">ABOUT US</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- jQuery ref sheets -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineMax.min.js'></script>
+    <script src="script/nav-script.js"></script>
+    <script type="text/javascript">
+
+        /* console log the nav-toggle checkbox */
+
+        function navigate() {
+            if (document.getElementById('nav-toggle').checked) {
+                console.log("checked");
+                if(tlOpen.progress() < 1){
+                    tlOpen.play();
+                } else {
+                    tlOpen.restart();
+                }
+            } else {
+                console.log("unchecked");
+                if(tlClose.progress() < 1){
+                    tlClose.play();
+                } else {
+                    tlClose.restart();
+                }
+            }
+        }
+        var query = window.matchMedia("(max-width: 1000px)")
+        function check() {
+            if (query.matches) {
+                console.log("navigate ran");
+                navigate();
+            } else {
+                console.log("navigate did not run");
+            }
+        }
+
+        query.addListener(check)
+
+    </script>
+
+</body>
+</html>

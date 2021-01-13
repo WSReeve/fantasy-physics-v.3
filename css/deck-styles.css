@@ -1,0 +1,278 @@
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+  
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html, body, div, h1, h2, h3, p, a, img,
+  i, ol, ul, li, label, table, caption,
+  footer, header, nav, section {
+    margin: 0; padding: 0;
+  }
+  
+  
+  
+  html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  body {
+    background: var(--clr-bkgd);
+    height: 100vh;
+  }
+  
+  img {
+    display: block;
+  }
+
+/* main styles */
+
+.btn--back {
+  font-size: 2em;
+  color: var(--clr-accent);
+  position: absolute;
+  padding: 0.25em;
+  left: 1.8rem;
+  top: 7.5vh;
+}
+
+main {
+   align-content: center;
+   text-align: center;
+}
+
+h2 {
+  color: var(--clr-accent);
+  font-size: 1.8rem;
+  margin-top: 1rem;
+
+}
+
+.card__container {
+  width: 100vw;
+  align-content: center;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.card {
+  width: 130px;
+  height: 180px;
+  border: 0.2em;
+  border-color: var(--clr-primary);
+  border-style: solid;
+  background: var(--clr-bkgd-light);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,.45);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  z-index: 10;
+  background-size: contain;
+}
+
+.card ~ .card {
+  margin: 0.5rem auto;
+}
+
+/* card viewer styles */
+
+.card-viewer__toggle {
+  display: none;
+}
+
+.toggle-label {
+  font-size: 1.4em;
+  color: var(--clr-accent);
+}
+.toggle-label .fa-search {
+  position: absolute;
+  padding: 0.25em;
+  right: 1.8rem;
+  top: 9.5vh;
+}
+.toggle-label .fa-th-large {
+  position: absolute;
+  padding: 0.25em;
+  right: 1.8rem;
+  top: 9.5vh;
+  visibility: hidden;
+}
+
+.card-viewer__toggle:checked ~ .toggle-label .fa-search{
+  visibility: hidden;
+}
+.card-viewer__toggle:checked ~ .toggle-label .fa-th-large{
+  visibility: visible;
+}
+
+.card-viewer__toggle:checked ~ .card__container{
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: visible;
+  animation: all .3s ease-in;
+  padding-bottom: 3vh;
+  scrollbar-width: none;
+}
+
+.card-viewer__toggle:checked ~ .card__container .card__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1rem;
+}
+
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card ~ .card {
+  margin: 0rem 0rem 0rem 1rem;
+}
+
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card {
+  width: 260px;
+  height: 360px;
+  border: 0.4em;
+  border-color: var(--clr-primary);
+  border-style: solid;
+	border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,.45);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-size: contain;
+}
+
+@media only screen and (min-width: 1000px) {
+  h2 {
+    font-size: 4em;
+  }
+  main {
+    height: 100vh;
+    justify-content: center;
+  }
+  .card__container {
+    width: 60vw;
+    margin: auto;
+  }
+
+  .card {
+    transition: transform 250ms ease;
+    perspective: 500px;
+    perspective-origin: 50% 50%;
+  }
+  .card:hover {
+    transform: scale(1.8);
+    z-index: 100;
+  }
+  .card-viewer__toggle:checked ~ .card__container .card__wrapper .card:hover {
+    transform: none;
+    box-shadow: 0rem 0rem 1rem 0 rgba(116, 160, 255, 0.5);
+  }
+  .card-viewer__toggle:checked ~ .card__container .card__wrapper .card ~ .card {
+    margin: auto 0rem auto 1rem;
+  }
+  .btn--back {
+    left: 20rem;
+    top: 11vh;
+    font-size: 3em;
+  }
+  .toggle-label .fa-search,
+  .toggle-label .fa-th-large {
+    right: 20rem;
+    top: 13.5vh;
+    font-size: 1.5em;
+  }
+}
+
+/* card imgs */
+
+.card--1,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--1 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_6.png);
+}
+.card--2,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--2 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_7.png);
+}
+.card--3,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--3 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_8.png);
+}
+.card--4,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--4 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_9.png);
+}
+.card--5,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--5 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_10.png);
+}
+.card--6,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--6 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_11.png);
+}
+.card--7,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--7 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_12.png);
+}
+.card--8,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--8 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_13.png);
+}
+.card--9,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--9 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_14.png);
+}
+.card--10,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--10 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_15.png);
+}
+.card--11,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--11 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_16.png);
+}
+.card--12,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--12 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_17.png);
+}
+.card--13,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--13 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_18.png);
+}
+.card--14,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--14 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_19.png);
+}
+.card--15,
+.card-viewer__toggle:checked ~ .card__container .card__wrapper .card--15 {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/cards/web/DP2/DP2_EN_10.png);
+}
+

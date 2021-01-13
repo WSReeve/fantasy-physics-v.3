@@ -1,0 +1,313 @@
+/*=======================
+----TABLE OF CONTENTS----
+1.  General Styles
+    a.  Colors and Fonts
+2.  Typography
+3.  Navigation
+    a.  Invisible Menu Toggle (checkbox)
+    b.  Visible Burger Button
+    c.  Navigation Menu
+4.  Homepage Styles
+    a. Cards
+    b. Action Area
+        i. buttons
+5.  Media Queries
+========================*/
+
+/*********************
+    General Styles
+*********************/
+
+/* Colors and Fonts */
+
+:root {
+    --clr-bkgd: #2f2f2f;
+    --clr-bkgd-light: #DDDDDD;
+    --clr-primary: #5124C9;
+    --clr-primary-light: #7B8FFC;
+    --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+    --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+    --clr-accent: #2AC424;
+    --clr-accent-grad: linear-gradient(to right, #b6fd31, #087a04);
+
+    --ff-logo: 'Maven Pro', sans-serif;
+    --ff-text: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body, div, h1, h2, h3, p, a, img,
+i, ol, ul, li, label, table, caption,
+footer, header, nav, section {
+    margin: 0; padding: 0;
+}
+
+
+
+html {
+    box-sizing: border-box;
+    font-family: var(--ff-text);
+    color: #fff;
+    font-size: 20px;
+}
+
+body {
+    background: var(--clr-bkgd);
+    height: 100vh;
+}
+
+img {
+    display: block;
+    height: inherit;
+    width: inherit;
+}
+
+
+/*****************
+    Typography  
+*****************/
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1 {
+    font-family: var(--ff-logo);
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-family: var(--ff-text);
+    font-weight: 800;
+    color: var(--clr-primary);
+    line-height: 0.8;
+}
+
+p {
+    font-weight: 500;
+}
+
+
+/*********************
+    Homepage Styles  
+**********************/
+
+header {
+    height: 7vh;
+    padding: 0.5rem 1rem;
+}
+
+.logo a {
+    font-size: max(2.5vw, 1.6rem);
+    line-height: 1rem;
+}
+
+main {
+    margin-top: 4vh;
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn__play {
+    visibility: hidden;
+}
+
+.featured-cards {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    animation: all .3s ease-in;
+    padding-bottom: 3vh;
+    scrollbar-width: none;
+    flex-shrink: 0;
+}
+
+.featured-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cards */
+
+.card__wrapper {
+    display: flex;
+    padding: 1rem;
+}
+
+.card ~ .card {
+    margin: 0rem 0rem 0rem 1rem;
+}
+
+.card {
+    position: relative;
+    width: 315px;
+    height: 440px;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,.45);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__content {
+    top: 0px;
+    font-family: var(--ff-logo);
+    position: absolute;
+    width: 315px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+}
+.card__name {
+    font-family: var(--ff-logo);
+    margin: 0.9rem auto auto;
+}
+.card__type {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-bkgd);
+    margin: auto auto -4.9rem;
+}
+.card__text {
+    width: 80%;
+    height: 27%;
+    margin: auto auto 1.6rem;
+    display: flex;
+    flex-direction: column;
+}
+.card__text p {
+    font-size: 1rem;
+    margin: auto 0rem;
+}
+
+.card--cover {
+    border: 0.4em;
+    border-color: var(--clr-primary);
+    border-style: solid;
+    background: var(--clr-bkgd-light);
+}
+
+.cover-card__text {
+    width: 80%;
+    height: 35%;
+	background: #fff;
+	border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,.3);
+    margin: auto auto 1rem;
+}
+
+.cover-card__title {
+    padding-top: 0.5rem;
+    font-size: 1.25em;
+}
+
+.cover-card__text p {
+    color: var(--clr-bkgd);
+    font-size: .75em;
+    padding: 0.5rem 0.35rem;
+}
+
+/* Action Area */
+
+.action {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0em 1em 1em;
+    overflow: visible;
+}
+
+.action p {
+    margin: 0em auto 1em;
+    max-width: 40ch;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* buttons */
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0em;
+}
+
+.btn {
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    padding: 1em 3em;
+    border-radius: 3em;
+    background-image: var(--clr-primary-grad2);
+    align-content: center;
+    display: block;
+    margin: 0.5em 0;
+    box-shadow: 0rem 1rem 1rem 0 rgba(0,0,0,.3);
+}
+
+/********************
+    Media Queries
+********************/
+
+@media only screen and (min-width: 700px) {
+
+    main{
+        margin-top: unset;
+    }
+
+    .btn-group {
+        margin: auto;
+        flex-direction: row;
+    }
+
+    .btn + .btn {
+        margin-left: 1em;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+
+    header {
+        margin: 1.5em 1em 0em;
+    }
+
+    .logo {
+        width: 25vw;
+    }
+
+    main {
+        height: 90vh;
+        
+    }
+
+    .btn__play {
+        visibility: visible;
+        margin: 6rem auto auto;
+        font-size: 2rem;
+        background-image: var(--clr-accent-grad);
+        padding: 2rem 3rem;
+        color: var(--clr-bkgd);
+    }
+
+    .featured-cards {
+        align-content: center;
+    }
+
+    .action {
+        margin: 0rem auto auto;
+    }
+
+    .card__wrapper {
+        margin: auto;
+    }
+}
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proton Accelorator Game</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <script language="javascript" type="text/javascript" src="nn.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="proton.js"></script>
+    <script language="javascript" type="text/javascript" src="obsticle.js"></script>
+    <script language="javascript" type="text/javascript" src="geneticAlg.js"></script>
+    <script src="https://use.fontawesome.com/1c8b39bbd3.js"></script>
+
+    <style>
+        
+        /* Colors and Fonts */
+            
+        :root {
+            --clr-bkgd: #2f2f2f;
+            --clr-bkgd-light: #DDDDDD;
+            --clr-primary: #5124C9;
+            --clr-primary-light: #7B8FFC;
+            --clr-primary-grad: linear-gradient(to right, #7B8FFC, #6943CF);
+            --clr-primary-grad2: linear-gradient(to right, #7B8FFC, #5124C9);
+            --clr-accent: #2AC424;
+            --clr-accent-grad: linear-gradient(to right, #b6fd31, #087a04);
+        
+            --ff-logo: 'Maven Pro', sans-serif;
+            --ff-text: 'Montserrat', sans-serif;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        
+        html, body, div, h1, h2, h3, p, a, img,
+        i, ol, ul, li, label, table, caption,
+        footer, header, nav, section {
+            margin: 0; padding: 0;
+        }
+        
+        
+        
+        html {
+            box-sizing: border-box;
+            font-family: var(--ff-text);
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        body {
+            background: var(--clr-bkgd);
+            height: 100vh;
+        }
+        
+        img {
+            display: block;
+            height: inherit;
+            width: inherit;
+        }
+
+        #pauseButton {
+            visibility: hidden;
+        }
+        #pauseLabel {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background-color: blue;
+            color: white;
+            padding: .5rem 1rem;
+            border-radius: 2rem;
+            position: absolute;
+            right: 1.5rem;
+        }
+
+        canvas {
+            padding: 0;
+            margin: auto;
+            display: block;
+        }
+
+        h1 {
+            font-family: var(--ff-logo);
+            font-weight: 700;
+            font-size: 1.6rem;
+            padding: 1rem;
+        }
+
+        h2 {
+            font-family: var(--ff-text);
+            font-weight: 800;
+            color: var(--clr-primary);
+            line-height: 0.8;
+            padding-left: 1rem;
+        }
+
+        .logo a {
+            font-size: max(2.5vw, 1.6rem);
+            line-height: 1rem;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .back-btn {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--clr-accent);
+            margin: auto 50vw auto 50vw;
+            top: 2rem;
+            
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 class='logo'><a href="../index.html">Fantasy Physics</a></h1>
+    <a href="../games.html" class="back-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    <h2>go.</h2>
+    <input type="checkbox" name="pauseButton" id="pauseButton" onclick="pause()">
+    <label for="pauseButton" id="pauseLabel">Pause</label>
+</body>
+</html>

@@ -1,8 +1,20 @@
 
 const clock = document.querySelector(".timer");
-const initTime = 5;
+const initTime = 3;
 let time = initTime;
 let runTimer;
+
+const howButton = document.querySelector("#howButton");
+const howBoxDisp = document.querySelector(".howBox");
+function howBox() {
+    if(howButton.checked) {
+        howBoxDisp.classList.remove("hidden");
+        //console.log(howBoxDisp.classList);
+    } else {
+        howBoxDisp.classList.add("hidden");
+        //console.log(howBoxDisp.classList);
+    }
+}
 
 function countDown() {
     clock.innerHTML = `${time}`;

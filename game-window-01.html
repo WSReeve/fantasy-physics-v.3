@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Screen</title>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/1c8b39bbd3.js"></script>
     <link rel="stylesheet" href="css/RPSgame-style.css">
     <script src="script/main-01.js" defer></script>
     <script src="script/game-01.js" defer></script>
 </head>
 <body>
+    <div class="howBox">
+        <label for="howButton" id="xLabel">X</label>
+        <h3>HOW TO PLAY:</h3>
+        <p>This game is essentially Rock Papper Scissors but in the world of Fantasy Physics, a <strong>Concept</strong> card beats a <strong>Device</strong> card, which beats a <strong>Particle</strong> card, in turn, beating a <strong>Concept</strong> card.</p>
+    </div>
     <section class="interface">
         <main class="arena">
+            <input type="checkbox" name="howButton" id="howButton" onclick="howBox()" checked>
+            <label for="howButton" id="howLabel">?</label>
+            <a href="games.html" class="back-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
             <h1>Concept > Device > Particle > Concept </h1>
             <h2 class="score">Wins: 0 | Losses: 0 | Ties: 0</h2>
             <section class="play-field">

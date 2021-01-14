@@ -1,5 +1,8 @@
 const opponentArea = document.querySelector('.opponent-card');
 const opponentDeck = ['Particle','Device','Concept'];
+const oParticleCards = [new Card('Proton', 'Particle', 'this is the proton card.', 'card-imgs/card-proton.png', 'd-cms'), new Card('Higgs Boson', 'Particle', 'this is the higgs card.', 'card-imgs/card-higgs.png', 'd-cms'), new Card('Muon', 'Particle', 'this is the Muon card.', 'card-imgs/card-muon.png', 'd-cms')];
+const oDeviceCards = [new Card('CMS', 'Device', 'this is the CMS card.', 'card-imgs/FP-card-CMS.png', 'd-cms')];
+const oConceptCards = [new Card('Neural Network', 'Concept', 'this is the Neural Network card.', 'card-imgs/FP-card-neuralNet.png', 'd-cms')];
 
 let opponentCardType;
 

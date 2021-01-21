@@ -40,11 +40,32 @@ function setup() {
     //slider2 = createSlider(1, 100, 1);
     pauseButton = document.querySelector("#pauseButton");
     pauseLabel = document.querySelector("#pauseLabel");
-    start();
+    noLoop();
 }
 
 function draw() {
   //speed = slider.value();
+
+  //draw bkgd
+  background(0);
+  image(bkgdImg, bkgdX, 0, bkgdImg.width, height);
+  bkgdX -= speed * parallax;
+  
+  if (bkgdX <= -bkgdImg.width + width) {
+    image(bkgdImg, bkgdX + bkgdImg.width, 0, bkgdImg.width, height);
+    if (bkgdX <= -bkgdImg.width) {
+      bkgdX = 0;
+    }
+  }
+
+  for (let proton of protons) {
+    proton.show();
+  }
+  for (let obsticle of obsticles) {
+    obsticle.show();
+  }
+
+  //move
 
     for (let n = 0; n < /*slider2.value()*/1; n++) {
       if (counter % round(1000/speed) == 0) {
@@ -86,7 +107,7 @@ function draw() {
   
         for (let j = protons.length - 1; j >= 0; j--) {
           if (protons[j].hits(obsticles[i])) {
-            gameover();  //for player control
+            gameover(); //for player control
             //oldProtons.push(protons.splice(j, 1)[0]); //for NN
           }
         }
@@ -109,34 +130,11 @@ function draw() {
       }
     }
 
-    //Drawing stuff:
-    background(0);
-    image(bkgdImg, bkgdX, 0, bkgdImg.width, height);
-    bkgdX -= speed * parallax;
-  
-    if (bkgdX <= -bkgdImg.width + width) {
-      image(bkgdImg, bkgdX + bkgdImg.width, 0, bkgdImg.width, height);
-      if (bkgdX <= -bkgdImg.width) {
-        bkgdX = 0;
-      }
-    }
-
-    for (let proton of protons) {
-      proton.show();
-    }
-    for (let obsticle of obsticles) {
-      obsticle.show();
-    }
-
     showScores();
-}
 
-function start() { //Just do dom stuff instead!!!
-  textSize(64);
-  textAlign(CENTER, CENTER);
-  text('PRESS [SPACEBAR] TO START', width / 2, height / 2);
-  textAlign(LEFT, BASELINE);
-  noLoop();
+    if (maxScore == 0 && counter == 0) {
+      start();
+    }
 }
 
 //for player controll
@@ -147,22 +145,6 @@ function keyPressed() {
             reset();
         }
     }
-}
-
-function showScores() {
-  textSize(32);
-  text('Energy: ' + score, 1, 32);
-  text('Record: ' + maxScore, 1, 64);
-}
-
-function gameover() {
-  textSize(64);
-  textAlign(CENTER, CENTER);
-  text('GAMEOVER', width / 2, height / 2);
-  textAlign(LEFT, BASELINE);
-  maxScore = max(score, maxScore);
-  isOver = true;
-  noLoop();
 }
 
 function reset() {
@@ -189,5 +171,51 @@ function pause() {
     pauseLabel.innerHTML = "Pause";
     loop();
   }
+}
 
+//functions that access the dom:
+
+function start() { //Just do dom stuff instead!!!
+  strokeWeight(6);
+  stroke('#e5ff00');
+  fill('#2f2f2f');
+  rect(width/2 - 350, height/2 - 40, 700, 80, 20);
+  noStroke();
+  fill(255);
+  textFont('Montserrat');
+  textStyle(BOLD);
+  textSize(42);
+  textAlign(CENTER, CENTER);
+  text('PRESS [SPACEBAR] TO START', width / 2, height / 2);
+  textAlign(LEFT, BASELINE);
+  noStroke();
+}
+
+function gameover() {
+  strokeWeight(6);
+  stroke('#e5ff00');
+  fill('#2f2f2f');
+  rect(width/2 - 300, height/2 - 125, 600, 250, 20);
+  noStroke();
+  fill(255);
+  textSize(64);
+  textAlign(CENTER, CENTER);
+  text('GAMEOVER', width / 2, height / 2 - 45);
+  textSize(28);
+  text('Energy: ' + score, width / 2, height / 2 + 5);
+  text('PRESS [SPACEBAR] TO PLAY AGAIN', width / 2, height / 2 + 50);
+  textAlign(LEFT, BASELINE);
+  noStroke();
+  maxScore = max(score, maxScore);
+  isOver = true;
+  noLoop();
+}
+
+function showScores() {
+  textFont('Montserrat');
+  textStyle(BOLD);
+  fill(0);
+  textSize(32);
+  text('Energy: ' + score, 1, 32);
+  text('Record: ' + maxScore, 1, 64);
 }

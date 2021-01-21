@@ -37,7 +37,6 @@ class Proton {
     }
 
     show() {
-        stroke(255)
         //fill(255, 50);
         image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
         //ellipse(this.x, this.y, 64, 64);

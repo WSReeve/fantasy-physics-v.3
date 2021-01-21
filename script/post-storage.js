@@ -6,7 +6,6 @@ class Post {
         this.date = _date;
         this.description = _desc;
         this.content = _content;
-        this.active =  false;
     }
 };
 
